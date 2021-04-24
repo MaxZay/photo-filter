@@ -3,6 +3,8 @@ let results = document.querySelectorAll('output')
 let reset = document.querySelector('.btn-reset')
 let fullScreenButton = document.querySelector('.fullscreen')
 let canvasImg = document.querySelector('canvas')
+let download = document.querySelector('.btn-save')
+let load = document.querySelector('#btnInput')
 
 onLoadImg('./assets/img/img.jpg')
 
@@ -14,6 +16,26 @@ reset.addEventListener('click', resetEvent)
 fullScreenButton.addEventListener('click', () => {
     document.fullscreen == false ? document.documentElement.requestFullscreen() : document.exitFullscreen()
 })
+
+download.addEventListener('click', function () {
+    var link = document.createElement('a');
+    link.download = 'download.png';
+    link.href = canvasImg.toDataURL();
+    link.click();
+    link.delete;
+})
+
+load.addEventListener('change', function (e) {
+    const file = load.files[0]
+    const reader = new FileReader()
+    reader.onload = () => {
+        const img = new Image();
+        onLoadImg(reader.result)
+    }
+    reader.readAsDataURL(file)
+})
+
+
 
 
 function mouseEvent() {
