@@ -1,3 +1,11 @@
+:root{
+  --blur: 0;
+  --invert: 0;
+  --sepia: 0;
+  --saturaate: 100;
+  --hue: 0;
+}
+
 * {
   padding: 0;
   margin: 0;
