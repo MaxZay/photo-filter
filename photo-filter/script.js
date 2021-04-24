@@ -2,6 +2,9 @@ let inputs = document.querySelectorAll('input')
 let results = document.querySelectorAll('output')
 let reset = document.querySelector('.btn-reset')
 let fullScreenButton = document.querySelector('.fullscreen')
+let canvasImg = document.querySelector('canvas')
+
+onLoadImg('./assets/img/img.jpg')
 
 inputs.forEach(input => input.addEventListener('change', mouseEvent))
 inputs.forEach(input => input.addEventListener('mousemove', mouseEvent))
@@ -35,4 +38,16 @@ function resetEvent() {
     results[3].value = 100;
     results[4].value = 0;
 
+}
+
+function onLoadImg(src) {
+    let img = new Image()
+    img.setAttribute('crossOrigin', 'anonymous')
+    img.src = src
+    img.onload = function () {
+        canvasImg.width = img.width
+        canvasImg.height = img.height
+        const ctx = canvasImg.getContext('2d')
+        ctx.drawImage(img, 0, 0)
+    }
 }
