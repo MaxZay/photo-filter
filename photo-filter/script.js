@@ -34,12 +34,16 @@ download.addEventListener('click', function () {
     image.src = srcImage
     image.onload = function () {
         const ctx = canvasImg.getContext('2d')
+        canvasImg.classList.remove('canvas')
         ctx.filter = `blur(${inputs[0].value}px) invert(${inputs[1].value}%) sepia(${inputs[2].value}%) saturate(${inputs[3].value}%) hue-rotate(${inputs[4].value}deg)`
         ctx.drawImage(image, 0, 0)
         var link = document.createElement('a');
         link.download = 'download.png';
         link.href = canvasImg.toDataURL();
         link.click();
+        canvasImg.classList.add('canvas')
+        ctx.filter = "none"
+        ctx.drawImage(image, 0, 0)
     }
 })
 
@@ -97,7 +101,7 @@ function resetEvent() {
     document.documentElement.style.setProperty(`--invert`, 0)
     document.documentElement.style.setProperty(`--sepia`, 0)
     document.documentElement.style.setProperty(`--saturate`, 1)
-    document.documentElement.style.setProperty(`--hue`, 10)
+    document.documentElement.style.setProperty(`--hue`, 0)
     inputs[0].value = 0
     inputs[1].value = 0
     inputs[2].value = 0
