@@ -94,7 +94,7 @@ function resetEvent() {
     document.documentElement.style.setProperty(`--invert`, 0)
     document.documentElement.style.setProperty(`--sepia`, 0)
     document.documentElement.style.setProperty(`--saturate`, 1)
-    document.documentElement.style.setProperty(`--hue`, 0)
+    document.documentElement.style.setProperty(`--hue`, 10)
     inputs[0].value = 0
     inputs[1].value = 0
     inputs[2].value = 0
