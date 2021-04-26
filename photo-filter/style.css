@@ -1,11 +1,3 @@
-:root{
-  --blur: 0;
-  --invert: 0;
-  --sepia: 0;
-  --saturaate: 100;
-  --hue: 0;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -182,9 +174,9 @@ canvas {
   max-height: 520px;
   max-width: 830px;
   object-fit: contain;
-  filter: blur(var(--blur, 0px)) invert(var(--invert, 0%))
-    sepia(var(--sepia, 0%)) saturate(var(--saturate, 100%))
-    hue-rotate(var(--hue, 0deg));
+  filter: blur(var(--blur)) invert(var(--invert))
+    sepia(var(--sepia)) saturate(var(--saturate))
+    hue-rotate(var(--hue));
 }
 .fullscreen {
   position: fixed;
@@ -265,6 +257,14 @@ canvas {
 .rss:hover .rss-year {
   right: -5px;
   letter-spacing: 0;
+}
+.download-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: blur(var(--blur)) invert(var(--invert))
+    sepia(var(--sepia)) saturate(var(--saturate))
+    hue-rotate(var(--hue));
 }
 @media (max-width: 1024px) {
   .main {
